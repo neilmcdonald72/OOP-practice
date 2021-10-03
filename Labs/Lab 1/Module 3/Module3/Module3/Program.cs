@@ -17,15 +17,15 @@ namespace SchoolTracker
                 {
                     var newStudent = new Student();
 
-                    newStudent.Name = MyCustomException.Ask("Student Name: ");
+                    newStudent.Name = Util.Console.Ask("Student Name: ");
 
-                    newStudent.Grade = MyCustomException.AskInt("Student Grade: ");
+                    newStudent.Grade = Util.Console.AskInt("Student Grade: ");
 
-                    newStudent.Birthday = MyCustomException.Ask("Student Birthday: ");
+                    newStudent.Birthday = Util.Console.Ask("Student Birthday: ");
 
-                    newStudent.Address = MyCustomException.Ask("Student Address: ");
+                    newStudent.Address = Util.Console.Ask("Student Address: ");
 
-                    newStudent.Phone = MyCustomException.AskInt("Student Phone Number: ");
+                    newStudent.Phone = Util.Console.AskInt("Student Phone Number: ");
 
                     students.Add(newStudent);
                     Student.Count++;
@@ -36,9 +36,13 @@ namespace SchoolTracker
                     if (Console.ReadLine() != "y")
                         adding = false;
                 }
-                catch (FormatException msg)
+                //catch (FormatException msg)
+                //{
+                //    Console.WriteLine(msg.Message);
+                //}
+                catch (Util.MyCustomException ex)
                 {
-                    Console.WriteLine(msg.Message);
+                    Console.WriteLine(ex.Message);
                 }
                 catch (Exception)
                 {
@@ -98,25 +102,5 @@ namespace SchoolTracker
         public string Subject;
     }
 
-    class MyCustomException : FormatException
-    {
-        static public string Ask(string question)
-        {
-            System.Console.Write(question);
-            return System.Console.ReadLine();
-        }
 
-        static public int AskInt(string question)
-        {
-            try
-            {
-                System.Console.Write(question);
-                return int.Parse(System.Console.ReadLine());
-            }
-            catch (Exception)
-            {
-                throw new FormatException("Input was not a number");
-            }
-        }
-    }
 }

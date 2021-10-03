@@ -4,6 +4,14 @@ using System.Text;
 
 namespace Util
 {
+
+    class MyCustomException : FormatException
+    {
+        public MyCustomException (String msg) : base(msg)
+        {
+
+        }
+    }
     class Console
     {
         static public string Ask(string question)
@@ -21,7 +29,7 @@ namespace Util
             }
             catch (Exception)
             {
-                throw new FormatException("Input was not a number");
+                throw new MyCustomException("Input was not a number: From the custom exception");
             }
         }
     }
