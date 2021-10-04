@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module4
+namespace Module4Sect8
 {
-    class Marketing
+    class Stats
     {
         public void Start()
         {
@@ -14,7 +14,7 @@ namespace Module4
         }
         void HasPosted()
         {
-            Console.WriteLine("Thank you for completing the survey. You are new subscribed to ten of our newsletters.");
+            Console.WriteLine("Survey Posted, Start");
         }
     }
 }
