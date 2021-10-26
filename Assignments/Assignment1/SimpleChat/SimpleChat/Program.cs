@@ -96,6 +96,52 @@ namespace SimpleChat
 
 
                 }
+
+                //---------------------------Part 5--------------------------------
+                //Console.WriteLine(args[0]);
+
+                if(args.Contains("-server")) //args [0] = "-server"
+                {
+                    Console.WriteLine("Server");
+
+                }
+                else
+                {
+                    Console.WriteLine("Client");
+                }
+                Console.ReadLine(); //Blocking statement
+
+                //Run as client vs server
+                while (true)
+                {
+                    Console.WriteLine("Listening for messages");
+                    if (Console.KeyAvailable)
+                    {
+                        //User input mode. once hitting "I" key
+
+                        ConsoleKeyInfo userKey = Console.ReadKey(); //Blocking statement
+                        if (userKey.Key == ConsoleKey.I)
+                        {
+                            Console.WriteLine("I is PRESSED >>");
+                            Console.ReadLine();
+                            //break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"You typed {userKey.Key}");
+                            Thread.Sleep(500);
+                        }
+                        //Allow for input
+
+                        //Let user quit
+                        Console.WriteLine($"You typed {userKey.Key}");
+                        Thread.Sleep(500);
+                    }
+
+
+                }
+
+
             }
     }
 }
