@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChatLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -97,18 +98,21 @@ namespace SimpleChat
 
                 }
 
-                //---------------------------Part 5--------------------------------
+                //---------------------------Part 5-6--------------------------------
                 //Console.WriteLine(args[0]);
 
                 if(args.Contains("-server")) //args [0] = "-server"
                 {
                     Console.WriteLine("Server");
+                    Server server = new Server();
 
                 }
                 else
                 {
                     Console.WriteLine("Client");
+                    Client client = new Client();
                 }
+
                 Console.ReadLine(); //Blocking statement
 
                 //Run as client vs server
